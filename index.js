@@ -12,5 +12,12 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  let letters = tutorials.map(char => char.split(' '));
+  for (let word in letters) {
+    for (let i = 0; i < letters[word].length; i++) {
+      letters[word][i] = letters[word][i][0].toUpperCase() + letters[word][i].slice(1);
+    }
+    tutorials[word] = letters[word].join(' ');
+  }
+  return tutorials;
 }
